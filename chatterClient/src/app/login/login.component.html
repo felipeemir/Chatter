@@ -1,0 +1,103 @@
+<div class="container app-screen">
+	
+	<p class="app-heading" >
+		<span>Chatter</span>
+	</p>
+
+	<div class="row login-screen">
+		<div class="offset-md-3 col-md-5 user-registration justifier">
+			<ngb-tabset>
+				
+				<ngb-tab title="Login">
+					<template ngbTabContent>
+
+						<div class="justifier">
+							<div class="form-group">
+								<label>Nome de Usuário</label>
+								<input type="text" 
+									name="username" 
+									class="form-control" 
+									placeholder="Insira seu nome de usuário"
+									[(ngModel)]="username" 
+									value="{{username}}" 
+								>
+							</div>
+
+							<div class="form-group">
+								<label>Senha</label>
+								<input type="password" 
+									name="password" 
+									class="form-control" 
+									placeholder="Insira sua senha" 
+									[(ngModel)]="password" 
+									value="{{ password }}"
+								>
+							</div>
+
+							<div class="form-group">
+								<button class="btn submit-btn"  (click)="login()">Login</button>
+							</div>
+						</div>
+						
+					</template>
+				</ngb-tab>
+
+				<ngb-tab title="Registration">
+					<template ngbTabContent>
+						
+						<div class="justifier">
+							
+							<div class="form-group">
+								<label>Nome de usuário</label>
+								<input type="text" 
+									name="name" 
+									class="form-control" 
+									placeholder="Insira seu nome de usuário"
+									[(ngModel)]="username" 
+									value="{{username}}"
+									(keyup)="onkeyup($event)"
+									(keydown)="onkeydown($event)"
+								>
+								<br *ngIf="isuserNameAvailable && username!=''" />
+								<div *ngIf="isuserNameAvailable && username!=''" class="alert alert-danger">
+									username <strong>{{username}}</strong> is already taken.
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Email</label>
+								<input type="text" 
+									name="email" 
+									class="form-control" 
+									placeholder="Insira seu email"
+									[(ngModel)]="email" 
+									value="{{email}}" 
+								>
+							</div>
+
+							<div class="form-group">
+								<label>Senha</label>
+								<input type="password" 
+									name="password" 
+									class="form-control" 
+									placeholder="Insira sua senha" 
+									[(ngModel)]="password" 
+									value="{{ password }}"
+								>
+							</div>
+
+							<div class="form-group">
+								<button class="btn submit-btn" (click)="registerUser()">Registration</button>
+							</div>
+
+						</div>
+
+					</template>
+				</ngb-tab>
+				
+			</ngb-tabset>
+
+		</div>
+	</div>
+	
+</div>
